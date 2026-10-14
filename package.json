@@ -1,0 +1,42 @@
+{
+  "name": "emdad-dental-store",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "predev": "node scripts/prestart.mjs",
+    "dev": "next dev -p 3000",
+    "prebuild": "node scripts/prestart.mjs",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "seed": "node scripts/seed.mjs",
+    "lint": "next lint",
+    "verify:m1": "node scripts/verify-m1.mjs",
+    "verify:m2": "node scripts/verify-m2.mjs",
+    "verify:m3": "node scripts/verify-m3.mjs",
+    "verify:m4": "node scripts/verify-m4.mjs",
+    "generate:assets": "node scripts/generate-m2-assets.mjs"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.21.1",
+    "bcryptjs": "^2.4.3",
+    "clsx": "^2.1.1",
+    "jose": "^5.9.6",
+    "lucide-react": "^0.453.0",
+    "next": "^14.2.15",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.5.4",
+    "zustand": "^4.5.5"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20.17.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "prisma": "^5.21.1",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3"
+  }
+}

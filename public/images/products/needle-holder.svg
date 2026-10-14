@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC" />
+      <stop offset="100%" stop-color="#E0F2FE" />
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F1F5F9" />
+      <stop offset="50%" stop-color="#CBD5E1" />
+      <stop offset="100%" stop-color="#94A3B8" />
+    </linearGradient>
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0D5C96" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <rect width="400" height="400" rx="24" fill="url(#cardBg)" />
+  <circle cx="200" cy="180" r="140" fill="#FFFFFF" opacity="0.65" />
+  <circle cx="200" cy="180" r="110" fill="none" stroke="#BAE6FD" stroke-width="1.5" stroke-dasharray="6 6" />
+
+  <g id="illustration" filter="url(#softShadow)">
+    <g transform="translate(130, 50)">
+      <path d="M 60 30 L 63 80 L 77 80 L 80 30 Z" fill="url(#metalGrad)" stroke="#475569" />
+      <line x1="70" y1="35" x2="70" y2="75" stroke="#CBD5E1" stroke-width="2" />
+      <circle cx="70" cy="85" r="10" fill="#64748B" />
+      <line x1="65" y1="95" x2="45" y2="175" stroke="#94A3B8" stroke-width="7" />
+      <line x1="75" y1="95" x2="95" y2="175" stroke="#94A3B8" stroke-width="7" />
+      <rect x="58" y="165" width="24" height="6" fill="#475569" />
+      <circle cx="35" cy="195" r="22" fill="none" stroke="url(#goldAccent)" stroke-width="8" />
+      <circle cx="105" cy="195" r="22" fill="none" stroke="url(#goldAccent)" stroke-width="8" />
+    </g>
+  </g>
+
+  <g transform="translate(20, 360)">
+    <rect x="0" y="0" width="360" height="26" rx="8" fill="#FFFFFF" opacity="0.9" stroke="#E2E8F0" stroke-width="1" />
+    <text x="180" y="17" font-family="Cairo, sans-serif" font-size="12" font-weight="700" fill="#0D5C96" text-anchor="middle">
+      حامل إبر جراحي ماثيو TC كربيد • Mayo-Hegar TC Needle Holder
+    </text>
+  </g>
+</svg>

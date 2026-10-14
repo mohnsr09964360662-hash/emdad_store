@@ -1,0 +1,159 @@
+// prisma/schema.prisma
+// Database schema for Emdad Dental (إمداد) Online Store
+// Database: SQLite (prisma/dev.db)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+// -------------------------------------------------------------
+// 1. Admin Authentication & RBAC
+// -------------------------------------------------------------
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  role         String   @default("ADMIN") // ADMIN, SUPERADMIN, EDITOR
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("admin_users")
+}
+
+// -------------------------------------------------------------
+// 2. Global Store Settings (Singleton Row)
+// -------------------------------------------------------------
+model StoreSettings {
+  id             String   @id @default("default")
+  storeName      String   @default("إمداد لمستلزمات طب الأسنان")
+  tagline        String   @default("مستلزماتك ... بين يديك")
+  whatsappNumber String   @default("+963 981 276 182")
+  instagramUrl   String   @default("https://www.instagram.com/emdad6911")
+  aboutBio       String   @default("متجر إمداد لمستلزمات وعيادات طب الأسنان في سوريا. نوفر أرقى المعدات والمواد الطبية السنية بأعلى معايير الجودة العالمية مع شحن فوري لكافة المحافظات السورية.")
+  updatedAt      DateTime @updatedAt
+
+  @@map("store_settings")
+}
+
+// -------------------------------------------------------------
+// 3. Clinical Categories
+// -------------------------------------------------------------
+model Category {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  nameAr      String
+  nameEn      String?
+  description String?
+  icon        String?   // Lucide icon name (e.g. Sparkles, Scissors, Activity)
+  order       Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  products    Product[]
+
+  @@index([order])
+  @@map("categories")
+}
+
+// -------------------------------------------------------------
+// 4. Dental Products Catalog
+// -------------------------------------------------------------
+model Product {
+  id             String      @id @default(cuid())
+  sku            String      @unique
+  nameAr         String
+  nameEn         String?
+  description    String
+  price          Int         // Syrian Pounds (SYP - ل.س)
+  originalPrice  Int?        // Optional pre-discount price in SYP
+  image          String      // SVG or uploaded image path (e.g. /images/products/composite-syringe.svg)
+  categoryId     String
+  unit           String      // Packaging unit (e.g. 'محقنة 4غ', 'طقم 7 قوالع')
+  stock          Int         @default(0)
+  badge          String?     // 'الأكثر مبيعاً' | 'جديد' | 'خصم'
+  technicalSpecs String?     // Serialized JSON Array string: '["Spec 1", "Spec 2"]'
+  isFeatured     Boolean     @default(false)
+  isActive       Boolean     @default(true)
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+
+  // Relations
+  category       Category    @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  orderItems     OrderItem[]
+
+  @@index([categoryId])
+  @@index([isFeatured])
+  @@index([isActive])
+  @@map("products")
+}
+
+// -------------------------------------------------------------
+// 5. Promotional Hero Carousel Banners
+// -------------------------------------------------------------
+model Banner {
+  id          String   @id @default(cuid())
+  title       String
+  subtitle    String
+  badge       String?
+  image       String   // SVG or banner image path
+  ctaText     String?  @default("تسوق الآن")
+  ctaLink     String?  @default("/#catalog-section")
+  aspectRatio String   @default("1:0.4")
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([order])
+  @@index([isActive])
+  @@map("banners")
+}
+
+// -------------------------------------------------------------
+// 6. Customer Checkout Orders
+// -------------------------------------------------------------
+model Order {
+  id            String      @id @default(cuid())
+  referenceCode String      @unique // e.g. EMD-482910-539
+  customerName  String
+  customerPhone String      // Syrian format: 09xxxxxxxx or +9639xxxxxxxx
+  governorate   String      // e.g. دمشق, حلب, حمص, ريف دمشق
+  clinicAddress String      // Clinic name and detailed street address
+  notes         String?     // Delivery instructions
+  subtotal      Int         // Total in Syrian Pounds (SYP)
+  status        String      @default("NEW") // NEW, PROCESSING, COMPLETED, CANCELLED
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  items         OrderItem[]
+
+  @@index([status])
+  @@index([createdAt])
+  @@map("orders")
+}
+
+// -------------------------------------------------------------
+// 7. Order Line Items (Captured Snapshot)
+// -------------------------------------------------------------
+model OrderItem {
+  id          String   @id @default(cuid())
+  orderId     String
+  productId   String?  // Nullable to retain historical records if product is deleted
+  productName String   // Snapshot of Arabic product name at time of order
+  productSku  String   // Snapshot of SKU at time of order
+  unitPrice   Int      // Captured unit price in SYP at time of order
+  quantity    Int
+  totalPrice  Int      // unitPrice * quantity in SYP
+
+  // Relations
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product     Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+
+  @@index([orderId])
+  @@index([productId])
+  @@map("order_items")
+}

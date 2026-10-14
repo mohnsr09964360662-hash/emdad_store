@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#072E4C" />
+      <stop offset="60%" stop-color="#0D5C96" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#3DD9B3" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="480" rx="32" fill="url(#bgGrad3)" />
+
+  <!-- Delivery & Medical Supply Logistics Graphic -->
+  <g transform="translate(850, 110)">
+    <!-- Circular Shield Background -->
+    <circle cx="130" cy="130" r="120" fill="rgba(56, 189, 248, 0.15)" stroke="#38BDF8" stroke-width="2" />
+    
+    <!-- Delivery Medical Box -->
+    <g transform="translate(50, 60)">
+      <rect x="40" y="50" width="90" height="70" rx="10" fill="#FFFFFF" />
+      <polygon points="40,50 85,20 175,20 130,50" fill="#E2E8F0" />
+      <polygon points="130,50 175,20 175,90 130,120" fill="#CBD5E1" />
+      <!-- Medical Cross on Parcel -->
+      <rect x="75" y="65" width="20" height="40" rx="3" fill="#0D5C96" />
+      <rect x="65" y="75" width="40" height="20" rx="3" fill="#0D5C96" />
+    </g>
+    <!-- Speed Lines -->
+    <path d="M 20 110 L 60 110" stroke="#3DD9B3" stroke-width="4" stroke-linecap="round" />
+    <path d="M 10 135 L 55 135" stroke="#38BDF8" stroke-width="4" stroke-linecap="round" />
+    <path d="M 30 160 L 65 160" stroke="#3DD9B3" stroke-width="4" stroke-linecap="round" />
+  </g>
+
+  <!-- Left Content: Syrian Coverage & WhatsApp -->
+  <g transform="translate(100, 110)" text-anchor="start">
+    <rect x="0" y="0" width="210" height="36" rx="18" fill="rgba(56, 189, 248, 0.2)" stroke="#38BDF8" stroke-width="1.2" />
+    <text x="105" y="23" font-family="Cairo, sans-serif" font-size="16" font-weight="700" fill="#38BDF8" text-anchor="middle">توصيل عيادي فوري ومباشر</text>
+
+    <text x="0" y="85" font-family="Cairo, sans-serif" font-size="44" font-weight="900" fill="#FFFFFF">مستلزماتك ... بين يديك</text>
+    <text x="0" y="140" font-family="Cairo, sans-serif" font-size="34" font-weight="800" fill="#3DD9B3">تغطية لكافة العيادات والمحافظات السورية</text>
+
+    <text x="0" y="195" font-family="Cairo, sans-serif" font-size="18" font-weight="500" fill="#E0F2FE" opacity="0.95">دمشق، ريف دمشق، حلب، حمص، اللاذقية وكافة المدن | دعم واتساب: 182 276 981 963+</text>
+
+    <g transform="translate(0, 235)">
+      <rect x="0" y="0" width="220" height="50" rx="25" fill="url(#accentGrad)" />
+      <text x="110" y="32" font-family="Cairo, sans-serif" font-size="18" font-weight="900" fill="#072E4C" text-anchor="middle">طلب مباشر عبر واتساب ←</text>
+
+      <rect x="240" y="5" width="160" height="40" rx="20" fill="rgba(255,255,255,0.12)" stroke="#BAE6FD" stroke-width="1" />
+      <text x="320" y="30" font-family="Cairo, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">📦 الدفع عند الاستلام</text>
+    </g>
+  </g>
+</svg>

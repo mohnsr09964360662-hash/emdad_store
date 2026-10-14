@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC" />
+      <stop offset="100%" stop-color="#E0F2FE" />
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F1F5F9" />
+      <stop offset="50%" stop-color="#CBD5E1" />
+      <stop offset="100%" stop-color="#94A3B8" />
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0D5C96" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <rect width="400" height="400" rx="24" fill="url(#cardBg)" />
+  <circle cx="200" cy="180" r="140" fill="#FFFFFF" opacity="0.65" />
+  <circle cx="200" cy="180" r="110" fill="none" stroke="#BAE6FD" stroke-width="1.5" stroke-dasharray="6 6" />
+
+  <g id="illustration" filter="url(#softShadow)">
+    <g transform="translate(90, 80)">
+      <path d="M 60 140 C 30 70, 190 70, 160 140" fill="none" stroke="#0D5C96" stroke-width="18" stroke-linecap="round" />
+      <circle cx="60" cy="140" r="14" fill="#0284C7" />
+      <circle cx="160" cy="140" r="14" fill="#0284C7" />
+      <rect x="52" y="145" width="16" height="25" rx="3" fill="#38BDF8" />
+      <rect x="152" y="145" width="16" height="25" rx="3" fill="#38BDF8" />
+      
+      <g transform="translate(65, 130)">
+        <path d="M 15 20 C 30 5, 60 5, 75 20 C 85 50, 5 50, 15 20 Z" fill="url(#metalGrad)" stroke="#64748B" stroke-width="1.5" />
+        <circle cx="45" cy="22" r="3" fill="#475569" />
+      </g>
+      <polygon points="105,170 120,170 112,205" fill="#14B8A6" />
+    </g>
+  </g>
+
+  <g transform="translate(20, 360)">
+    <rect x="0" y="0" width="360" height="26" rx="8" fill="#FFFFFF" opacity="0.9" stroke="#E2E8F0" stroke-width="1" />
+    <text x="180" y="17" font-family="Cairo, sans-serif" font-size="12" font-weight="700" fill="#0D5C96" text-anchor="middle">
+      مصفوفات قطعية تشريحية Tor VM • Sectional Matrix &amp; NiTi Clamps
+    </text>
+  </g>
+</svg>

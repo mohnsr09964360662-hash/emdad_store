@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC" />
+      <stop offset="100%" stop-color="#E0F2FE" />
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0D5C96" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <rect width="400" height="400" rx="24" fill="url(#cardBg)" />
+  <circle cx="200" cy="180" r="140" fill="#FFFFFF" opacity="0.65" />
+  <circle cx="200" cy="180" r="110" fill="none" stroke="#BAE6FD" stroke-width="1.5" stroke-dasharray="6 6" />
+
+  <g id="illustration" filter="url(#softShadow)">
+    <g transform="translate(140, 80)">
+      <rect x="20" y="80" width="80" height="130" rx="14" fill="#0D5C96" />
+      <rect x="26" y="90" width="68" height="110" rx="8" fill="#0284C7" />
+      <rect x="35" y="45" width="50" height="35" rx="8" fill="#F59E0B" />
+      <polygon points="50,45 70,45 65,25 55,25" fill="#D97706" />
+      <rect x="32" y="115" width="56" height="60" rx="4" fill="#FFFFFF" />
+      <text x="60" y="135" font-family="sans-serif" font-size="11" font-weight="900" fill="#0D5C96" text-anchor="middle">Single Bond</text>
+      <text x="60" y="152" font-family="sans-serif" font-size="9" font-weight="700" fill="#D97706" text-anchor="middle">Universal</text>
+      <text x="60" y="166" font-family="sans-serif" font-size="8" font-weight="600" fill="#64748B" text-anchor="middle">5 ml</text>
+      <path d="M 60 5 C 55 15, 48 25, 60 30 C 72 25, 65 15, 60 5 Z" fill="#FCD34D" opacity="0.9" />
+    </g>
+  </g>
+
+  <g transform="translate(20, 360)">
+    <rect x="0" y="0" width="360" height="26" rx="8" fill="#FFFFFF" opacity="0.9" stroke="#E2E8F0" stroke-width="1" />
+    <text x="180" y="17" font-family="Cairo, sans-serif" font-size="12" font-weight="700" fill="#0D5C96" text-anchor="middle">
+      لاصق عاج وميناء شامل • Single Bond Universal 5ml
+    </text>
+  </g>
+</svg>

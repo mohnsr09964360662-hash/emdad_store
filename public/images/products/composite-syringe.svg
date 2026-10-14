@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC" />
+      <stop offset="100%" stop-color="#E0F2FE" />
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0D5C96" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <rect width="400" height="400" rx="24" fill="url(#cardBg)" />
+  <circle cx="200" cy="180" r="140" fill="#FFFFFF" opacity="0.65" />
+  <circle cx="200" cy="180" r="110" fill="none" stroke="#BAE6FD" stroke-width="1.5" stroke-dasharray="6 6" />
+
+  <g id="illustration" filter="url(#softShadow)">
+    <g transform="translate(100, 110) rotate(-25 100 100)">
+      <rect x="50" y="70" width="130" height="34" rx="6" fill="#1E293B" />
+      <rect x="80" y="74" width="70" height="26" fill="#FFFFFF" rx="3" />
+      <text x="115" y="92" font-family="sans-serif" font-size="14" font-weight="900" fill="#0D5C96" text-anchor="middle">3M A2</text>
+      <line x1="60" y1="70" x2="60" y2="80" stroke="#94A3B8" stroke-width="2" />
+      <line x1="70" y1="70" x2="70" y2="80" stroke="#94A3B8" stroke-width="2" />
+      <rect x="180" y="80" width="45" height="14" fill="#64748B" />
+      <rect x="220" y="68" width="16" height="38" rx="4" fill="#1E293B" />
+      <polygon points="50,78 30,82 15,105 18,108 34,88 50,92" fill="#0EA5E9" />
+      <circle cx="15" cy="112" r="5" fill="#FDE68A" />
+    </g>
+  </g>
+
+  <g transform="translate(20, 360)">
+    <rect x="0" y="0" width="360" height="26" rx="8" fill="#FFFFFF" opacity="0.9" stroke="#E2E8F0" stroke-width="1" />
+    <text x="180" y="17" font-family="Cairo, sans-serif" font-size="12" font-weight="700" fill="#0D5C96" text-anchor="middle">
+      كومبوزيت نانو هايبرد Z250 • 3M Filtek Z250 A2
+    </text>
+  </g>
+</svg>

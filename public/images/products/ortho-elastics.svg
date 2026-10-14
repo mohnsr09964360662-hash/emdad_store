@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC" />
+      <stop offset="100%" stop-color="#E0F2FE" />
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0D5C96" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <rect width="400" height="400" rx="24" fill="url(#cardBg)" />
+  <circle cx="200" cy="180" r="140" fill="#FFFFFF" opacity="0.65" />
+  <circle cx="200" cy="180" r="110" fill="none" stroke="#BAE6FD" stroke-width="1.5" stroke-dasharray="6 6" />
+
+  <g id="illustration" filter="url(#softShadow)">
+    <g transform="translate(110, 60)">
+      <rect x="85" y="20" width="10" height="210" rx="5" fill="#E2E8F0" />
+      <g transform="translate(0, 30)">
+        <circle cx="65" cy="15" r="10" fill="none" stroke="#0D5C96" stroke-width="4.5" />
+        <circle cx="115" cy="15" r="10" fill="none" stroke="#0D5C96" stroke-width="4.5" />
+        <line x1="75" y1="15" x2="85" y2="15" stroke="#CBD5E1" stroke-width="3" />
+        <line x1="95" y1="15" x2="105" y2="15" stroke="#CBD5E1" stroke-width="3" />
+      </g>
+      <g transform="translate(0, 56)">
+        <circle cx="65" cy="15" r="10" fill="none" stroke="#0284C7" stroke-width="4.5" />
+        <circle cx="115" cy="15" r="10" fill="none" stroke="#0284C7" stroke-width="4.5" />
+        <line x1="75" y1="15" x2="85" y2="15" stroke="#CBD5E1" stroke-width="3" />
+        <line x1="95" y1="15" x2="105" y2="15" stroke="#CBD5E1" stroke-width="3" />
+      </g>
+      <g transform="translate(0, 82)">
+        <circle cx="65" cy="15" r="10" fill="none" stroke="#14B8A6" stroke-width="4.5" />
+        <circle cx="115" cy="15" r="10" fill="none" stroke="#14B8A6" stroke-width="4.5" />
+        <line x1="75" y1="15" x2="85" y2="15" stroke="#CBD5E1" stroke-width="3" />
+        <line x1="95" y1="15" x2="105" y2="15" stroke="#CBD5E1" stroke-width="3" />
+      </g>
+      <g transform="translate(0, 108)">
+        <circle cx="65" cy="15" r="10" fill="none" stroke="#F59E0B" stroke-width="4.5" />
+        <circle cx="115" cy="15" r="10" fill="none" stroke="#F59E0B" stroke-width="4.5" />
+        <line x1="75" y1="15" x2="85" y2="15" stroke="#CBD5E1" stroke-width="3" />
+        <line x1="95" y1="15" x2="105" y2="15" stroke="#CBD5E1" stroke-width="3" />
+      </g>
+      <g transform="translate(0, 134)">
+        <circle cx="65" cy="15" r="10" fill="none" stroke="#EC4899" stroke-width="4.5" />
+        <circle cx="115" cy="15" r="10" fill="none" stroke="#EC4899" stroke-width="4.5" />
+        <line x1="75" y1="15" x2="85" y2="15" stroke="#CBD5E1" stroke-width="3" />
+        <line x1="95" y1="15" x2="105" y2="15" stroke="#CBD5E1" stroke-width="3" />
+      </g>
+      <g transform="translate(0, 160)">
+        <circle cx="65" cy="15" r="10" fill="none" stroke="#8B5CF6" stroke-width="4.5" />
+        <circle cx="115" cy="15" r="10" fill="none" stroke="#8B5CF6" stroke-width="4.5" />
+        <line x1="75" y1="15" x2="85" y2="15" stroke="#CBD5E1" stroke-width="3" />
+        <line x1="95" y1="15" x2="105" y2="15" stroke="#CBD5E1" stroke-width="3" />
+      </g>
+      <g transform="translate(0, 186)">
+        <circle cx="65" cy="15" r="10" fill="none" stroke="#10B981" stroke-width="4.5" />
+        <circle cx="115" cy="15" r="10" fill="none" stroke="#10B981" stroke-width="4.5" />
+        <line x1="75" y1="15" x2="85" y2="15" stroke="#CBD5E1" stroke-width="3" />
+        <line x1="95" y1="15" x2="105" y2="15" stroke="#CBD5E1" stroke-width="3" />
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(20, 360)">
+    <rect x="0" y="0" width="360" height="26" rx="8" fill="#FFFFFF" opacity="0.9" stroke="#E2E8F0" stroke-width="1" />
+    <text x="180" y="17" font-family="Cairo, sans-serif" font-size="12" font-weight="700" fill="#0D5C96" text-anchor="middle">
+      مطاط ربط تقويمي ملون 1000 حلقة • Orthodontic Ligature Ties
+    </text>
+  </g>
+</svg>

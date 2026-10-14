@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC" />
+      <stop offset="100%" stop-color="#E0F2FE" />
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F1F5F9" />
+      <stop offset="50%" stop-color="#CBD5E1" />
+      <stop offset="100%" stop-color="#94A3B8" />
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0D5C96" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <rect width="400" height="400" rx="24" fill="url(#cardBg)" />
+  <circle cx="200" cy="180" r="140" fill="#FFFFFF" opacity="0.65" />
+  <circle cx="200" cy="180" r="110" fill="none" stroke="#BAE6FD" stroke-width="1.5" stroke-dasharray="6 6" />
+
+  <g id="illustration" filter="url(#softShadow)">
+    <g transform="translate(80, 80)">
+      <rect x="20" y="30" width="130" height="180" rx="10" fill="#0D5C96" stroke="#072E4C" stroke-width="3" />
+      <rect x="30" y="45" width="110" height="150" rx="6" fill="#F8FAFC" />
+      <text x="85" y="75" font-family="sans-serif" font-size="20" font-weight="900" fill="#0D5C96" text-anchor="middle">SILK 3-0</text>
+      <text x="85" y="95" font-family="sans-serif" font-size="10" font-weight="700" fill="#64748B" text-anchor="middle">Braided • Black • 75cm</text>
+      <line x1="45" y1="108" x2="125" y2="108" stroke="#E2E8F0" stroke-width="2" />
+      <path d="M 65 145 A 25 25 0 0 1 105 145" fill="none" stroke="#0D5C96" stroke-width="3.5" />
+      <polygon points="63,142 63,150 56,145" fill="#0D5C96" />
+      
+      <g transform="translate(140, 60)">
+        <path d="M 40 30 A 45 45 0 0 1 90 90" fill="none" stroke="url(#metalGrad)" stroke-width="5" stroke-linecap="round" />
+        <polygon points="90,90 94,84 98,92" fill="#475569" />
+        <path d="M 40 30 Q 15 50 25 90 Q 35 130 80 140 Q 110 130 90 90" fill="none" stroke="#0F172A" stroke-width="2.5" stroke-dasharray="4 2" />
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(20, 360)">
+    <rect x="0" y="0" width="360" height="26" rx="8" fill="#FFFFFF" opacity="0.9" stroke="#E2E8F0" stroke-width="1" />
+    <text x="180" y="17" font-family="Cairo, sans-serif" font-size="12" font-weight="700" fill="#0D5C96" text-anchor="middle">
+      خيوط جراحية حريرية كولك 3-0 • Silk 3-0 Surgical Sutures
+    </text>
+  </g>
+</svg>

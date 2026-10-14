@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC" />
+      <stop offset="100%" stop-color="#E0F2FE" />
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0D5C96" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <rect width="400" height="400" rx="24" fill="url(#cardBg)" />
+  <circle cx="200" cy="180" r="140" fill="#FFFFFF" opacity="0.65" />
+  <circle cx="200" cy="180" r="110" fill="none" stroke="#BAE6FD" stroke-width="1.5" stroke-dasharray="6 6" />
+
+  <g id="illustration" filter="url(#softShadow)">
+    <g transform="translate(90, 80)">
+      <rect x="20" y="30" width="180" height="180" rx="12" fill="#FFFFFF" stroke="#0D5C96" stroke-width="3" />
+      <rect x="20" y="30" width="180" height="40" rx="10" fill="#DC2626" />
+      <text x="110" y="56" font-family="sans-serif" font-size="14" font-weight="900" fill="#FFFFFF" text-anchor="middle">ISO 25 • .04 TAPER</text>
+      <rect x="35" y="85" width="150" height="110" rx="6" fill="#FEF2F2" />
+      <g transform="translate(50, 95)">
+        <polygon points="10,5 14,5 12,85" fill="#FDA4AF" />
+        <polygon points="10,5 14,5 12,20" fill="#DC2626" />
+        <line x1="10" y1="40" x2="14" y2="40" stroke="#9F1239" stroke-width="1.5" />
+        <line x1="10" y1="55" x2="14" y2="55" stroke="#9F1239" stroke-width="1.5" />
+        <line x1="10" y1="70" x2="14" y2="70" stroke="#9F1239" stroke-width="1.5" />
+      </g>
+      <g transform="translate(76, 95)">
+        <polygon points="10,5 14,5 12,85" fill="#FDA4AF" />
+        <polygon points="10,5 14,5 12,20" fill="#DC2626" />
+        <line x1="10" y1="40" x2="14" y2="40" stroke="#9F1239" stroke-width="1.5" />
+        <line x1="10" y1="55" x2="14" y2="55" stroke="#9F1239" stroke-width="1.5" />
+        <line x1="10" y1="70" x2="14" y2="70" stroke="#9F1239" stroke-width="1.5" />
+      </g>
+      <g transform="translate(102, 95)">
+        <polygon points="10,5 14,5 12,85" fill="#FDA4AF" />
+        <polygon points="10,5 14,5 12,20" fill="#DC2626" />
+        <line x1="10" y1="40" x2="14" y2="40" stroke="#9F1239" stroke-width="1.5" />
+        <line x1="10" y1="55" x2="14" y2="55" stroke="#9F1239" stroke-width="1.5" />
+        <line x1="10" y1="70" x2="14" y2="70" stroke="#9F1239" stroke-width="1.5" />
+      </g>
+      <g transform="translate(128, 95)">
+        <polygon points="10,5 14,5 12,85" fill="#FDA4AF" />
+        <polygon points="10,5 14,5 12,20" fill="#DC2626" />
+        <line x1="10" y1="40" x2="14" y2="40" stroke="#9F1239" stroke-width="1.5" />
+        <line x1="10" y1="55" x2="14" y2="55" stroke="#9F1239" stroke-width="1.5" />
+        <line x1="10" y1="70" x2="14" y2="70" stroke="#9F1239" stroke-width="1.5" />
+      </g>
+      <g transform="translate(154, 95)">
+        <polygon points="10,5 14,5 12,85" fill="#FDA4AF" />
+        <polygon points="10,5 14,5 12,20" fill="#DC2626" />
+        <line x1="10" y1="40" x2="14" y2="40" stroke="#9F1239" stroke-width="1.5" />
+        <line x1="10" y1="55" x2="14" y2="55" stroke="#9F1239" stroke-width="1.5" />
+        <line x1="10" y1="70" x2="14" y2="70" stroke="#9F1239" stroke-width="1.5" />
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(20, 360)">
+    <rect x="0" y="0" width="360" height="26" rx="8" fill="#FFFFFF" opacity="0.9" stroke="#E2E8F0" stroke-width="1" />
+    <text x="180" y="17" font-family="Cairo, sans-serif" font-size="12" font-weight="700" fill="#0D5C96" text-anchor="middle">
+      أقماع غوتا بيركا مدرجة 25/.04 • Gutta Percha Points ISO 25
+    </text>
+  </g>
+</svg>

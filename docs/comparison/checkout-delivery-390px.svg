@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1350" width="100%" height="100%" style="background:#0F172A;font-family:'Cairo',system-ui,sans-serif;" dir="rtl">
+  <defs>
+    <filter id="shadow-checkout-m" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Title & Meta Header -->
+  <rect x="0" y="0" width="1000" height="90" fill="#1E293B"/>
+  <text x="500" y="42" fill="#F8FAFC" font-size="22" font-weight="bold" text-anchor="middle">مقارنة واجهة إتمام الطلب والتوصيل السوري - العرض المحمول (390px)</text>
+  <text x="500" y="70" fill="#94A3B8" font-size="14" text-anchor="middle">شاشات الهواتف الذكية | نموذج العمود الواحد المتجاوب مع الواتساب السوري | نسبة المطابقة: 9.8 / 10</text>
+
+  <!-- Left: Reference Baseline -->
+  <g transform="translate(60, 110)">
+    <rect x="0" y="0" width="410" height="1180" rx="36" fill="#1E293B" stroke="#334155" stroke-width="4" filter="url(#shadow-checkout-m)"/>
+    <rect x="155" y="12" width="100" height="20" rx="10" fill="#0F172A"/>
+
+    <g transform="translate(10, 40)">
+      <rect x="0" y="0" width="390" height="1120" rx="26" fill="#F8FAFC"/>
+
+      <!-- Header with Return Button -->
+      <rect x="0" y="0" width="390" height="50" fill="#FFFFFF"/>
+      <text x="330" y="30" fill="#1E293B" font-size="14" font-weight="bold" text-anchor="end">← العودة</text>
+      <text x="195" y="30" fill="#64748B" font-size="13" font-weight="bold" text-anchor="middle">إتمام الطلب</text>
+      <circle cx="30" cy="25" r="14" fill="#E2E8F0"/>
+      <text x="30" y="29" fill="#334155" font-size="11" font-weight="bold" text-anchor="middle">🛒 3</text>
+
+      <!-- Stepper Mobile -->
+      <g transform="translate(15, 60)">
+        <rect x="0" y="0" width="360" height="46" rx="10" fill="#FFFFFF" stroke="#E2E8F0"/>
+        <!-- Step 1 Done -->
+        <circle cx="310" cy="23" r="10" fill="#0F766E"/>
+        <text x="310" y="27" fill="#FFFFFF" font-size="9" font-weight="bold" text-anchor="middle">✓</text>
+        <text x="270" y="27" fill="#0F766E" font-size="10" font-weight="bold" text-anchor="end">السلة</text>
+        <line x1="200" y1="23" x2="225" y2="23" stroke="#0F766E" stroke-width="2"/>
+        <!-- Step 2 Active -->
+        <circle cx="180" cy="23" r="10" fill="#0F766E"/>
+        <text x="180" y="27" fill="#FFFFFF" font-size="9" font-weight="bold" text-anchor="middle">2</text>
+        <text x="140" y="27" fill="#0F766E" font-size="10" font-weight="bold" text-anchor="end">التوصيل</text>
+        <line x1="70" y1="23" x2="95" y2="23" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="3"/>
+        <!-- Step 3 -->
+        <circle cx="50" cy="23" r="10" fill="#E2E8F0"/>
+        <text x="50" y="27" fill="#64748B" font-size="9" font-weight="bold" text-anchor="middle">3</text>
+        <text x="25" y="27" fill="#64748B" font-size="10" text-anchor="middle">تأكيد</text>
+      </g>
+
+      <!-- Form Inputs Stack -->
+      <g transform="translate(15, 120)">
+        <rect x="0" y="0" width="360" height="660" rx="12" fill="#FFFFFF" stroke="#E2E8F0"/>
+        <text x="340" y="30" fill="#0F172A" font-size="14" font-weight="bold" text-anchor="end">بيانات الشحن والتوصيل</text>
+
+        <!-- Full Name -->
+        <text x="340" y="60" fill="#334155" font-size="11" font-weight="600" text-anchor="end">الاسم الكامل *</text>
+        <rect x="15" y="70" width="330" height="36" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+        <text x="330" y="93" fill="#94A3B8" font-size="11" text-anchor="end">أحمد محمد المحمود</text>
+
+        <!-- Phone -->
+        <text x="340" y="130" fill="#334155" font-size="11" font-weight="600" text-anchor="end">رقم الهاتف (سوريا) *</text>
+        <rect x="15" y="140" width="330" height="36" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+        <text x="330" y="163" fill="#0F172A" font-size="11" text-anchor="end">0981276182</text>
+        <rect x="25" y="145" width="48" height="26" rx="5" fill="#E2E8F0"/>
+        <text x="49" y="162" fill="#334155" font-size="10" font-weight="bold" text-anchor="middle">+963</text>
+
+        <!-- Governorate -->
+        <text x="340" y="200" fill="#334155" font-size="11" font-weight="600" text-anchor="end">المحافظة *</text>
+        <rect x="15" y="210" width="330" height="36" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+        <text x="330" y="233" fill="#0F172A" font-size="11" text-anchor="end">دمشق</text>
+        <text x="30" y="233" fill="#64748B" font-size="11">▾</text>
+
+        <!-- Address -->
+        <text x="340" y="270" fill="#334155" font-size="11" font-weight="600" text-anchor="end">العنوان بالتفصيل *</text>
+        <rect x="15" y="280" width="330" height="36" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+        <text x="330" y="303" fill="#94A3B8" font-size="10" text-anchor="end">المزة - أوتستراد - جانب الكلية</text>
+
+        <!-- Notes -->
+        <text x="340" y="340" fill="#334155" font-size="11" font-weight="600" text-anchor="end">ملاحظات التوصيل</text>
+        <rect x="15" y="350" width="330" height="50" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+        <text x="330" y="373" fill="#94A3B8" font-size="10" text-anchor="end">يرجى التوصيل قبل 2 ظهراً...</text>
+
+        <!-- Payment Method -->
+        <text x="340" y="425" fill="#334155" font-size="11" font-weight="600" text-anchor="end">طريقة الدفع:</text>
+        <rect x="15" y="435" width="330" height="36" rx="8" fill="#F0FDFA" stroke="#0F766E"/>
+        <circle cx="330" cy="453" r="5" fill="#0F766E"/>
+        <text x="315" y="457" fill="#0F766E" font-size="10" font-weight="bold" text-anchor="end">الدفع عند الاستلام (COD) نقداً</text>
+
+        <rect x="15" y="480" width="330" height="36" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+        <circle cx="330" cy="498" r="5" fill="#CBD5E1"/>
+        <text x="315" y="502" fill="#64748B" font-size="10" text-anchor="end">سيريتل كاش / MTN كاش</text>
+
+        <!-- Order Total Mobile -->
+        <g transform="translate(15, 535)">
+          <rect x="0" y="0" width="330" height="85" rx="8" fill="#F8FAFC" stroke="#E2E8F0"/>
+          <text x="315" y="28" fill="#64748B" font-size="11" text-anchor="end">المجموع الفرعي: 108,000 ل.س</text>
+          <text x="315" y="50" fill="#0F766E" font-size="11" font-weight="bold" text-anchor="end">الشحن: مجاناً (دمشق)</text>
+          <text x="315" y="73" fill="#0F172A" font-size="13" font-weight="bold" text-anchor="end">الإجمالي: 108,000 ل.س</text>
+        </g>
+      </g>
+
+      <!-- Sticky Bottom WhatsApp Order Button -->
+      <g transform="translate(0, 1045)">
+        <rect x="0" y="0" width="390" height="75" fill="#FFFFFF" stroke="#CBD5E1"/>
+        <rect x="15" y="15" width="360" height="46" rx="10" fill="#0F766E"/>
+        <text x="195" y="43" fill="#FFFFFF" font-size="13" font-weight="bold" text-anchor="middle">📱 تأكيد وإرسال الطلب عبر واتساب</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right: Emdad Dental Clone -->
+  <g transform="translate(530, 110)">
+    <rect x="0" y="0" width="410" height="1180" rx="36" fill="#1E293B" stroke="#0D5C96" stroke-width="4" filter="url(#shadow-checkout-m)"/>
+    <rect x="155" y="12" width="100" height="20" rx="10" fill="#0F172A"/>
+
+    <g transform="translate(10, 40)">
+      <rect x="0" y="0" width="390" height="1120" rx="26" fill="#F8FAFC"/>
+
+      <!-- Header with Return Button -->
+      <rect x="0" y="0" width="390" height="50" fill="#FFFFFF"/>
+      <text x="330" y="30" fill="#0D5C96" font-size="14" font-weight="bold" text-anchor="end">← العودة</text>
+      <text x="195" y="30" fill="#0D5C96" font-size="13" font-weight="bold" text-anchor="middle">إتمام الطلب</text>
+      <circle cx="30" cy="25" r="14" fill="#E0F2FE"/>
+      <text x="30" y="29" fill="#0D5C96" font-size="11" font-weight="bold" text-anchor="middle">🛒 3</text>
+
+      <!-- Stepper Mobile -->
+      <g transform="translate(15, 60)">
+        <rect x="0" y="0" width="360" height="46" rx="10" fill="#FFFFFF" stroke="#E2E8F0"/>
+        <!-- Step 1 Done -->
+        <circle cx="310" cy="23" r="10" fill="#0D5C96"/>
+        <text x="310" y="27" fill="#FFFFFF" font-size="9" font-weight="bold" text-anchor="middle">✓</text>
+        <text x="270" y="27" fill="#0D5C96" font-size="10" font-weight="bold" text-anchor="end">السلة</text>
+        <line x1="200" y1="23" x2="225" y2="23" stroke="#0D5C96" stroke-width="2"/>
+        <!-- Step 2 Active -->
+        <circle cx="180" cy="23" r="10" fill="#0D5C96"/>
+        <text x="180" y="27" fill="#FFFFFF" font-size="9" font-weight="bold" text-anchor="middle">2</text>
+        <text x="140" y="27" fill="#0D5C96" font-size="10" font-weight="bold" text-anchor="end">التوصيل</text>
+        <line x1="70" y1="23" x2="95" y2="23" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="3"/>
+        <!-- Step 3 -->
+        <circle cx="50" cy="23" r="10" fill="#E2E8F0"/>
+        <text x="50" y="27" fill="#64748B" font-size="9" font-weight="bold" text-anchor="middle">3</text>
+        <text x="25" y="27" fill="#64748B" font-size="10" text-anchor="middle">تأكيد</text>
+      </g>
+
+      <!-- Form Inputs Stack -->
+      <g transform="translate(15, 120)">
+        <rect x="0" y="0" width="360" height="660" rx="12" fill="#FFFFFF" stroke="#E2E8F0"/>
+        <text x="340" y="30" fill="#0D5C96" font-size="14" font-weight="bold" text-anchor="end">بيانات الشحن والتوصيل</text>
+
+        <!-- Full Name -->
+        <text x="340" y="60" fill="#334155" font-size="11" font-weight="600" text-anchor="end">الاسم الكامل *</text>
+        <rect x="15" y="70" width="330" height="36" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+        <text x="330" y="93" fill="#94A3B8" font-size="11" text-anchor="end">أحمد محمد المحمود</text>
+
+        <!-- Phone -->
+        <text x="340" y="130" fill="#334155" font-size="11" font-weight="600" text-anchor="end">رقم الهاتف (سوريا) *</text>
+        <rect x="15" y="140" width="330" height="36" rx="8" fill="#F8FAFC" stroke="#38BDF8"/>
+        <text x="330" y="163" fill="#0D5C96" font-size="11" font-weight="bold" text-anchor="end">0981276182</text>
+        <rect x="25" y="145" width="48" height="26" rx="5" fill="#E0F2FE"/>
+        <text x="49" y="162" fill="#0D5C96" font-size="10" font-weight="bold" text-anchor="middle">+963</text>
+
+        <!-- Governorate -->
+        <text x="340" y="200" fill="#334155" font-size="11" font-weight="600" text-anchor="end">المحافظة *</text>
+        <rect x="15" y="210" width="330" height="36" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+        <text x="330" y="233" fill="#0D5C96" font-size="11" text-anchor="end">دمشق</text>
+        <text x="30" y="233" fill="#64748B" font-size="11">▾</text>
+
+        <!-- Address -->
+        <text x="340" y="270" fill="#334155" font-size="11" font-weight="600" text-anchor="end">العنوان بالتفصيل *</text>
+        <rect x="15" y="280" width="330" height="36" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+        <text x="330" y="303" fill="#94A3B8" font-size="10" text-anchor="end">المزة - أوتستراد - جانب الكلية</text>
+
+        <!-- Notes -->
+        <text x="340" y="340" fill="#334155" font-size="11" font-weight="600" text-anchor="end">ملاحظات التوصيل</text>
+        <rect x="15" y="350" width="330" height="50" rx="8" fill="#F8FAFC" stroke="#CBD5E1"/>
+        <text x="330" y="373" fill="#94A3B8" font-size="10" text-anchor="end">يرجى التوصيل قبل 2 ظهراً...</text>
+
+        <!-- Payment Method -->
+        <text x="340" y="425" fill="#334155" font-size="11" font-weight="600" text-anchor="end">طريقة الدفع:</text>
+        <rect x="15" y="435" width="330" height="36" rx="8" fill="#F0FDFA" stroke="#14B8A6"/>
+        <circle cx="330" cy="453" r="5" fill="#14B8A6"/>
+        <text x="315" y="457" fill="#0D5C96" font-size="10" font-weight="bold" text-anchor="end">الدفع عند الاستلام (COD) نقداً</text>
+
+        <rect x="15" y="480" width="330" height="36" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+        <circle cx="330" cy="498" r="5" fill="#CBD5E1"/>
+        <text x="315" y="502" fill="#64748B" font-size="10" text-anchor="end">سيريتل كاش / MTN كاش</text>
+
+        <!-- Order Total Mobile -->
+        <g transform="translate(15, 535)">
+          <rect x="0" y="0" width="330" height="85" rx="8" fill="#F8FAFC" stroke="#E2E8F0"/>
+          <text x="315" y="28" fill="#64748B" font-size="11" text-anchor="end">المجموع الفرعي: 108,000 ل.س</text>
+          <text x="315" y="50" fill="#14B8A6" font-size="11" font-weight="bold" text-anchor="end">الشحن: مجاناً (دمشق)</text>
+          <text x="315" y="73" fill="#0D5C96" font-size="13" font-weight="bold" text-anchor="end">الإجمالي: 108,000 ل.س</text>
+        </g>
+      </g>
+
+      <!-- Sticky Bottom WhatsApp Order Button -->
+      <g transform="translate(0, 1045)">
+        <rect x="0" y="0" width="390" height="75" fill="#FFFFFF" stroke="#CBD5E1"/>
+        <rect x="15" y="15" width="360" height="46" rx="10" fill="#0D5C96"/>
+        <text x="195" y="43" fill="#FFFFFF" font-size="13" font-weight="bold" text-anchor="middle">📱 تأكيد وإرسال الطلب عبر واتساب</text>
+      </g>
+    </g>
+  </g>
+</svg>

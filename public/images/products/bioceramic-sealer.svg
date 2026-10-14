@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC" />
+      <stop offset="100%" stop-color="#E0F2FE" />
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0D5C96" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <rect width="400" height="400" rx="24" fill="url(#cardBg)" />
+  <circle cx="200" cy="180" r="140" fill="#FFFFFF" opacity="0.65" />
+  <circle cx="200" cy="180" r="110" fill="none" stroke="#BAE6FD" stroke-width="1.5" stroke-dasharray="6 6" />
+
+  <g id="illustration" filter="url(#softShadow)">
+    <g transform="translate(90, 80) rotate(-20 100 100)">
+      <rect x="60" y="70" width="110" height="36" rx="6" fill="#FFFFFF" stroke="#0D5C96" stroke-width="3" />
+      <rect x="75" y="75" width="80" height="26" fill="#E0F2FE" />
+      <text x="115" y="93" font-family="sans-serif" font-size="12" font-weight="900" fill="#0D5C96" text-anchor="middle">AH Plus Bioceramic</text>
+      <rect x="170" y="80" width="50" height="16" fill="#0284C7" />
+      <rect x="215" y="66" width="14" height="44" rx="4" fill="#0D5C96" />
+      <polygon points="60,82 30,86 10,95" fill="none" stroke="#64748B" stroke-width="3" stroke-linecap="round" />
+      <circle cx="10" cy="95" r="4" fill="#38BDF8" />
+    </g>
+  </g>
+
+  <g transform="translate(20, 360)">
+    <rect x="0" y="0" width="360" height="26" rx="8" fill="#FFFFFF" opacity="0.9" stroke="#E2E8F0" stroke-width="1" />
+    <text x="180" y="17" font-family="Cairo, sans-serif" font-size="12" font-weight="700" fill="#0D5C96" text-anchor="middle">
+      سيلر بيوسيراميك AH Plus • AH Plus Bioceramic Sealer
+    </text>
+  </g>
+</svg>

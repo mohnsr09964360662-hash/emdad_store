@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC" />
+      <stop offset="100%" stop-color="#E0F2FE" />
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0D5C96" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <rect width="400" height="400" rx="24" fill="url(#cardBg)" />
+  <circle cx="200" cy="180" r="140" fill="#FFFFFF" opacity="0.65" />
+  <circle cx="200" cy="180" r="110" fill="none" stroke="#BAE6FD" stroke-width="1.5" stroke-dasharray="6 6" />
+
+  <g id="illustration" filter="url(#softShadow)">
+    <g transform="translate(90, 80)">
+      <rect x="20" y="50" width="180" height="120" rx="14" fill="#0284C7" stroke="#0369A1" stroke-width="2.5" />
+      <ellipse cx="110" cy="110" rx="50" ry="25" fill="#072E4C" />
+      <path d="M 85 105 Q 100 60 115 105 Q 130 50 140 105" fill="#38BDF8" stroke="#0EA5E9" stroke-width="2" />
+      <text x="50" y="80" font-family="sans-serif" font-size="12" font-weight="900" fill="#FFFFFF">NITRILE</text>
+      <text x="50" y="96" font-family="sans-serif" font-size="9" font-weight="700" fill="#BAE6FD">100 Gloves • Blue</text>
+    </g>
+  </g>
+
+  <g transform="translate(20, 360)">
+    <rect x="0" y="0" width="360" height="26" rx="8" fill="#FFFFFF" opacity="0.9" stroke="#E2E8F0" stroke-width="1" />
+    <text x="180" y="17" font-family="Cairo, sans-serif" font-size="12" font-weight="700" fill="#0D5C96" text-anchor="middle">
+      قفازات فحص طبية نيتريل زرقاء • Blue Nitrile Examination Gloves
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC" />
+      <stop offset="100%" stop-color="#E0F2FE" />
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F1F5F9" />
+      <stop offset="50%" stop-color="#CBD5E1" />
+      <stop offset="100%" stop-color="#94A3B8" />
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0D5C96" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <rect width="400" height="400" rx="24" fill="url(#cardBg)" />
+  <circle cx="200" cy="180" r="140" fill="#FFFFFF" opacity="0.65" />
+  <circle cx="200" cy="180" r="110" fill="none" stroke="#BAE6FD" stroke-width="1.5" stroke-dasharray="6 6" />
+
+  <g id="illustration" filter="url(#softShadow)">
+    <g transform="translate(100, 70)">
+      <rect x="20" y="20" width="160" height="200" rx="14" fill="#0F172A" stroke="#334155" stroke-width="2" />
+      <path d="M 50 160 C 45 70, 155 70, 150 160" fill="none" stroke="url(#metalGrad)" stroke-width="5" stroke-linecap="round" />
+      <circle cx="100" cy="85" r="4" fill="#DC2626" />
+      <path d="M 60 180 C 55 110, 145 110, 140 180" fill="none" stroke="url(#metalGrad)" stroke-width="4" stroke-linecap="round" opacity="0.7" />
+      <text x="100" y="55" font-family="sans-serif" font-size="12" font-weight="900" fill="#38BDF8" text-anchor="middle">THERMAL NiTi</text>
+    </g>
+  </g>
+
+  <g transform="translate(20, 360)">
+    <rect x="0" y="0" width="360" height="26" rx="8" fill="#FFFFFF" opacity="0.9" stroke="#E2E8F0" stroke-width="1" />
+    <text x="180" y="17" font-family="Cairo, sans-serif" font-size="12" font-weight="700" fill="#0D5C96" text-anchor="middle">
+      أسلاك تقويم سوبر نايتي حرارية • Thermal NiTi Archwires
+    </text>
+  </g>
+</svg>
