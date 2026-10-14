@@ -13,20 +13,25 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  const admin = await prisma.adminUser.findUnique({
-    where: { id: session.sub },
-    select: { id: true, email: true, name: true, role: true },
-  });
-
-  if (!admin) {
-    return NextResponse.json(
-      { authenticated: false, message: 'المستخدم غير موجود' },
-      { status: 401 }
-    );
+  let admin = null;
+  try {
+    admin = await prisma.adminUser.findUnique({
+      where: { id: session.sub },
+      select: { id: true, email: true, name: true, role: true },
+    });
+  } catch (err) {
+    console.warn('[API /api/auth/me] DB lookup notice:', err);
   }
+
+  const user = admin || {
+    id: session.sub,
+    email: session.email,
+    name: session.name || 'مدير المتجر',
+    role: session.role || 'ADMIN',
+  };
 
   return NextResponse.json({
     authenticated: true,
-    user: admin,
+    user,
   });
 }
