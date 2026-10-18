@@ -42,9 +42,8 @@ function prepareServerlessDatabase(): string | undefined {
   return process.env.DATABASE_URL;
 }
 
-const activeDbUrl = prepareServerlessDatabase();
-
 const prismaClientSingleton = () => {
+  const activeDbUrl = prepareServerlessDatabase();
   return new PrismaClient({
     datasources: activeDbUrl
       ? {
@@ -66,10 +65,23 @@ const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClientSingleton | undefined;
 };
 
-export const prisma = globalForPrisma.prisma ?? prismaClientSingleton();
-
-if (process.env.NODE_ENV !== 'production') {
-  globalForPrisma.prisma = prisma;
-}
+// Lazy proxy: instantiate Prisma only when a method/property is accessed, avoiding build-time DB locks
+export const prisma = new Proxy({} as PrismaClient, {
+  get(target, prop, receiver) {
+    if (!globalForPrisma.prisma) {
+      try {
+        globalForPrisma.prisma = prismaClientSingleton();
+      } catch (err) {
+        console.warn('[Prisma Lazy Proxy] Failed to initialize client:', err);
+        return () => Promise.resolve(null);
+      }
+    }
+    const val = Reflect.get(globalForPrisma.prisma, prop, receiver);
+    if (typeof val === 'function') {
+      return val.bind(globalForPrisma.prisma);
+    }
+    return val;
+  },
+});
 
 export default prisma;

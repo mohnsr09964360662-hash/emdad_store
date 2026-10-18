@@ -25,15 +25,15 @@ export default function AdminLoginPage() {
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleQuickFill = () => {
-    setEmail('admin@emdad-dental.com');
-    setPassword('admin123');
+    setEmail('Bahaa110968');
+    setPassword('0968514260');
     setErrorMessage('');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim() || !password.trim()) {
-      setErrorMessage('يرجى إدخال البريد الإلكتروني وكلمة المرور');
+      setErrorMessage('يرجى إدخال اسم المستخدم وكلمة المرور');
       return;
     }
 
@@ -92,7 +92,7 @@ export default function AdminLoginPage() {
             <div className="flex items-center justify-between mb-2">
               <span className="font-bold text-slate-700 flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-emdad-turquoise" />
-                بيانات الدخول التجريبية:
+                بيانات تسجيل الدخول:
               </span>
               <button
                 type="button"
@@ -103,8 +103,8 @@ export default function AdminLoginPage() {
               </button>
             </div>
             <div className="text-slate-500 font-mono text-[11px] space-y-0.5" dir="ltr">
-              <div>Email: admin@emdad-dental.com</div>
-              <div>Pass: admin123</div>
+              <div>User: Bahaa110968</div>
+              <div>Pass: 0968514260</div>
             </div>
           </div>
 
@@ -120,18 +120,18 @@ export default function AdminLoginPage() {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                البريد الإلكتروني
+                اسم المستخدم أو البريد الإلكتروني
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-400">
                   <Mail className="w-4 h-4" />
                 </div>
                 <input
-                  type="email"
+                  type="text"
                   dir="ltr"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="admin@emdad-dental.com"
+                  placeholder="Bahaa110968"
                   className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pr-10 pl-3.5 text-sm text-slate-800 placeholder:text-slate-400 text-left focus:outline-hidden focus:border-emdad-primary focus:ring-2 focus:ring-emdad-sky/20 transition-all"
                   required
                 />

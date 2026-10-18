@@ -106,9 +106,9 @@ export default function HomePage() {
       setIsLoading(true);
       try {
         const [resProd, resCat, resBan] = await Promise.allSettled([
-          fetch('/api/products?active=all').then((r) => (r.ok ? r.json() : null)),
-          fetch('/api/categories').then((r) => (r.ok ? r.json() : null)),
-          fetch('/api/banners').then((r) => (r.ok ? r.json() : null)),
+          fetch(`/api/products?active=all&_t=${Date.now()}`, { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)),
+          fetch(`/api/categories?_t=${Date.now()}`, { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)),
+          fetch(`/api/banners?_t=${Date.now()}`, { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)),
         ]);
 
         if (!isMounted) return;
@@ -119,9 +119,7 @@ export default function HomePage() {
           Array.isArray(resProd.value.products)
         ) {
           const activeProds = resProd.value.products.filter((p: any) => p.isActive !== false);
-          if (activeProds.length > 0) {
-            setProducts(activeProds.map(mapDbProduct));
-          }
+          setProducts(activeProds.map(mapDbProduct));
         }
 
         if (

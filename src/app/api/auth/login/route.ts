@@ -48,6 +48,23 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    // Check Bahaa credentials (requested by user)
+    const isBahaaUser =
+      cleanEmail === 'bahaa110968' ||
+      cleanEmail === 'bahaa110968@gmail.com' ||
+      cleanEmail === 'bahaa';
+    const isBahaaPass = password === '0968514260';
+
+    if (isBahaaUser && isBahaaPass) {
+      isMatch = true;
+      adminPayload = {
+        sub: 'bahaa-root-admin',
+        email: 'Bahaa110968',
+        name: 'بهاء (Bahaa)',
+        role: 'ADMIN',
+      };
+    }
+
     // Direct fallback for master/default admin credentials
     if (!isMatch && cleanEmail === defaultAdminEmail && password === defaultAdminPassword) {
       isMatch = true;

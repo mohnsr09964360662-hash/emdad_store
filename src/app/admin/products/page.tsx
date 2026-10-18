@@ -73,8 +73,8 @@ export default function AdminProductsPage() {
   const fetchCatalog = async () => {
     try {
       const [prodRes, catRes] = await Promise.all([
-        fetch('/api/products?active=all').then((r) => r.json()),
-        fetch('/api/categories').then((r) => r.json()),
+        fetch(`/api/products?active=all&_t=${Date.now()}`, { cache: 'no-store' }).then((r) => r.json()),
+        fetch(`/api/categories?_t=${Date.now()}`, { cache: 'no-store' }).then((r) => r.json()),
       ]);
       setProducts(Array.isArray(prodRes) ? prodRes : prodRes.products || []);
       setCategories(Array.isArray(catRes) ? catRes : catRes.categories || []);

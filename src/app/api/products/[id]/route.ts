@@ -1,7 +1,13 @@
 // src/app/api/products/[id]/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import prisma from '@/lib/prisma';
 import { getAdminSession } from '@/lib/auth';
+import {
+  loadAllProducts,
+  updateProductInStore,
+  deleteProductFromStore,
+} from '@/lib/products-store';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET(
   request: NextRequest,
@@ -9,15 +15,8 @@ export async function GET(
 ) {
   try {
     const { id } = params;
-
-    const product = await prisma.product.findFirst({
-      where: {
-        OR: [{ id }, { sku: id }],
-      },
-      include: {
-        category: true,
-      },
-    });
+    const all = loadAllProducts();
+    const product = all.find((p) => p.id === id || p.sku === id);
 
     if (!product) {
       return NextResponse.json(
@@ -26,7 +25,9 @@ export async function GET(
       );
     }
 
-    return NextResponse.json({ success: true, product });
+    const response = NextResponse.json({ success: true, product });
+    response.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate');
+    return response;
   } catch (error) {
     console.error('[API /api/products/[id] GET error]', error);
     return NextResponse.json(
@@ -49,43 +50,18 @@ export async function PUT(
     const { id } = params;
     const body = await request.json();
 
-    const existing = await prisma.product.findUnique({ where: { id } });
-    if (!existing) {
+    const updated = await updateProductInStore(id, body);
+
+    if (!updated) {
       return NextResponse.json(
         { success: false, message: 'المنتج المراد تعديله غير موجود' },
         { status: 404 }
       );
     }
 
-    const data: any = {};
-    if (body.nameAr !== undefined) data.nameAr = body.nameAr.trim();
-    if (body.nameEn !== undefined) data.nameEn = body.nameEn?.trim() || null;
-    if (body.sku !== undefined) data.sku = body.sku.trim();
-    if (body.description !== undefined) data.description = body.description.trim();
-    if (body.price !== undefined) data.price = Math.round(Number(body.price));
-    if (body.originalPrice !== undefined) {
-      data.originalPrice = body.originalPrice ? Math.round(Number(body.originalPrice)) : null;
-    }
-    if (body.image !== undefined) data.image = body.image;
-    if (body.categoryId !== undefined) data.categoryId = body.categoryId;
-    if (body.unit !== undefined) data.unit = body.unit.trim();
-    if (body.stock !== undefined) data.stock = Math.max(0, Number(body.stock));
-    if (body.badge !== undefined) data.badge = body.badge?.trim() || null;
-    if (body.technicalSpecs !== undefined) {
-      data.technicalSpecs = Array.isArray(body.technicalSpecs)
-        ? JSON.stringify(body.technicalSpecs)
-        : body.technicalSpecs;
-    }
-    if (body.isFeatured !== undefined) data.isFeatured = Boolean(body.isFeatured);
-    if (body.isActive !== undefined) data.isActive = Boolean(body.isActive);
-
-    const updated = await prisma.product.update({
-      where: { id },
-      data,
-      include: { category: true },
-    });
-
-    return NextResponse.json({ success: true, product: updated });
+    const response = NextResponse.json({ success: true, product: updated });
+    response.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate');
+    return response;
   } catch (error) {
     console.error('[API /api/products/[id] PUT error]', error);
     return NextResponse.json(
@@ -113,32 +89,22 @@ export async function DELETE(
     }
 
     const { id } = params;
+    const ok = await deleteProductFromStore(id);
 
-    // Check if product has associated order items
-    const orderItemsCount = await prisma.orderItem.count({
-      where: { productId: id },
-    });
-
-    if (orderItemsCount > 0) {
-      // Soft-delete to preserve order history integrity
-      const product = await prisma.product.update({
-        where: { id },
-        data: { isActive: false },
-      });
-      return NextResponse.json({
-        success: true,
-        message: 'تم إلغاء تفعيل المنتج حفاظاً على سجل الطلبات التاريخية',
-        softDeleted: true,
-        product,
-      });
+    if (!ok) {
+      return NextResponse.json(
+        { success: false, message: 'المنتج المراد حذفه غير موجود' },
+        { status: 404 }
+      );
     }
 
-    await prisma.product.delete({ where: { id } });
-    return NextResponse.json({ success: true, message: 'تم حذف المنتج بنجاح' });
+    const response = NextResponse.json({ success: true, message: 'تم حذف المنتج بنجاح' });
+    response.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate');
+    return response;
   } catch (error) {
     console.error('[API /api/products/[id] DELETE error]', error);
     return NextResponse.json(
-      { success: false, message: 'فشل حذف المنتج من قاعدة البيانات' },
+      { success: false, message: 'فشل حذف المنتج' },
       { status: 500 }
     );
   }

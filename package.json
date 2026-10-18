@@ -5,8 +5,8 @@
   "scripts": {
     "predev": "node scripts/prestart.mjs",
     "dev": "next dev -p 3000",
-    "postinstall": "prisma generate",
-    "build": "prisma generate && next build",
+    "postinstall": "prisma generate || true",
+    "build": "next build",
     "start": "next start -p 3000",
     "seed": "node scripts/seed.mjs",
     "lint": "next lint",

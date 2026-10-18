@@ -4,6 +4,8 @@ import { getAdminSession } from '@/lib/auth';
 import fs from 'fs/promises';
 import path from 'path';
 
+export const dynamic = 'force-dynamic';
+
 const ALLOWED_MIME_TYPES = [
   'image/png',
   'image/jpeg',
@@ -51,32 +53,37 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Determine extension
-    let ext = '.png';
-    if (file.type === 'image/jpeg' || file.type === 'image/jpg') ext = '.jpg';
-    else if (file.type === 'image/webp') ext = '.webp';
-    else if (file.type === 'image/svg+xml') ext = '.svg';
-    else if (file.name && file.name.includes('.')) ext = path.extname(file.name);
-
-    const randomSuffix = Math.floor(1000 + Math.random() * 9000);
-    const filename = `emdad_${Date.now()}_${randomSuffix}${ext}`;
-
-    const uploadDir = path.join(process.cwd(), 'public', 'images', 'uploads');
-    await fs.mkdir(uploadDir, { recursive: true });
-
-    const filePath = path.join(uploadDir, filename);
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
-    await fs.writeFile(filePath, buffer);
+    // Generate base64 Data URL for 100% serverless compatibility
+    const base64Data = buffer.toString('base64');
+    const dataUrl = `data:${file.type};base64,${base64Data}`;
 
-    const publicUrl = `/images/uploads/${filename}`;
+    // Also attempt local filesystem save if possible (optional)
+    let publicUrl = dataUrl;
+    try {
+      let ext = '.png';
+      if (file.type === 'image/jpeg' || file.type === 'image/jpg') ext = '.jpg';
+      else if (file.type === 'image/webp') ext = '.webp';
+      else if (file.type === 'image/svg+xml') ext = '.svg';
+      else if (file.name && file.name.includes('.')) ext = path.extname(file.name);
+
+      const randomSuffix = Math.floor(1000 + Math.random() * 9000);
+      const filename = `emdad_${Date.now()}_${randomSuffix}${ext}`;
+      const uploadDir = path.join(process.cwd(), 'public', 'images', 'uploads');
+      await fs.mkdir(uploadDir, { recursive: true });
+      await fs.writeFile(path.join(uploadDir, filename), buffer);
+      publicUrl = `/images/uploads/${filename}`;
+    } catch {
+      // If filesystem is read-only (Netlify/Vercel), fallback to dataUrl seamlessly
+      publicUrl = dataUrl;
+    }
 
     return NextResponse.json(
       {
         success: true,
         url: publicUrl,
-        filename,
         size: file.size,
         mimeType: file.type,
       },
