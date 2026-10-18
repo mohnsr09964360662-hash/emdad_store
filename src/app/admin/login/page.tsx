@@ -53,7 +53,10 @@ export default function AdminLoginPage() {
         throw new Error(data.message || 'بيانات الدخول غير صحيحة');
       }
 
-      // Successful login -> Redirect to Admin Dashboard
+      // Successful login -> Set active session memory flag & redirect to Admin Dashboard
+      if (typeof window !== 'undefined') {
+        (window as any).__EMDAD_ACTIVE_SESSION__ = true;
+      }
       router.push('/admin');
       router.refresh();
     } catch (err: any) {

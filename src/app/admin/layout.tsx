@@ -43,6 +43,21 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       return;
     }
 
+    // Strict security check: On any page refresh (F5/Reload) or direct entry, require password!
+    const hasActiveLoginSession =
+      typeof window !== 'undefined' &&
+      (window as any).__EMDAD_ACTIVE_SESSION__ === true;
+
+    if (!hasActiveLoginSession) {
+      if (typeof window !== 'undefined') {
+        (window as any).__EMDAD_ACTIVE_SESSION__ = false;
+      }
+      fetch('/api/auth/logout', { method: 'POST' }).finally(() => {
+        router.replace('/admin/login');
+      });
+      return;
+    }
+
     const verifyAuth = async () => {
       try {
         const res = await fetch('/api/auth/me');
@@ -78,6 +93,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   }
 
   const handleLogout = async () => {
+    if (typeof window !== 'undefined') {
+      (window as any).__EMDAD_ACTIVE_SESSION__ = false;
+    }
     try {
       await fetch('/api/auth/logout', { method: 'POST' });
     } catch (e) {

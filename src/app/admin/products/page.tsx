@@ -58,10 +58,10 @@ export default function AdminProductsPage() {
   const [formNameEn, setFormNameEn] = useState('');
   const [formSku, setFormSku] = useState('');
   const [formCategoryId, setFormCategoryId] = useState('');
-  const [formPrice, setFormPrice] = useState<number>(0);
-  const [formOriginalPrice, setFormOriginalPrice] = useState<number | undefined>(undefined);
+  const [formPrice, setFormPrice] = useState<string>('');
+  const [formOriginalPrice, setFormOriginalPrice] = useState<string>('');
   const [formUnit, setFormUnit] = useState('');
-  const [formStock, setFormStock] = useState<number>(10);
+  const [formStock, setFormStock] = useState<string>('20');
   const [formBadge, setFormBadge] = useState<string>('');
   const [formImage, setFormImage] = useState<string>('');
   const [formDescription, setFormDescription] = useState<string>('');
@@ -95,10 +95,10 @@ export default function AdminProductsPage() {
     setFormNameEn('');
     setFormSku(`EMD-${Date.now().toString().slice(-6)}`);
     setFormCategoryId(categories[0]?.id || 'restorative');
-    setFormPrice(100000);
-    setFormOriginalPrice(undefined);
+    setFormPrice('');
+    setFormOriginalPrice('');
     setFormUnit('قطعة واحدة');
-    setFormStock(20);
+    setFormStock('20');
     setFormBadge('');
     setFormImage('/images/products/composite-syringe.svg');
     setFormDescription('');
@@ -114,10 +114,10 @@ export default function AdminProductsPage() {
     setFormNameEn(p.nameEn || '');
     setFormSku(p.sku);
     setFormCategoryId(p.categoryId);
-    setFormPrice(p.price);
-    setFormOriginalPrice(p.originalPrice ?? undefined);
+    setFormPrice(String(p.price || ''));
+    setFormOriginalPrice(p.originalPrice ? String(p.originalPrice) : '');
     setFormUnit(p.unit);
-    setFormStock(p.stock);
+    setFormStock(String(p.stock !== undefined ? p.stock : 20));
     setFormBadge(p.badge || '');
     setFormImage(p.image);
     setFormDescription(p.description);
@@ -167,8 +167,8 @@ export default function AdminProductsPage() {
 
   const handleSaveProduct = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formName.trim() || !formSku.trim() || !formPrice) {
-      alert('يرجى ملء الحقول الإلزامية المطلوبة');
+    if (!formName.trim() || !formSku.trim() || !formPrice.trim()) {
+      alert('يرجى ملء الحقول الإلزامية المطلوبة (الاسم، الرمز، والسعر)');
       return;
     }
 
@@ -179,10 +179,10 @@ export default function AdminProductsPage() {
         nameEn: formNameEn.trim() || null,
         sku: formSku.trim(),
         categoryId: formCategoryId,
-        price: Number(formPrice),
-        originalPrice: formOriginalPrice ? Number(formOriginalPrice) : null,
+        price: Number(formPrice) || 0,
+        originalPrice: formOriginalPrice.trim() ? Number(formOriginalPrice) : null,
         unit: formUnit.trim() || 'قطعة',
-        stock: Number(formStock),
+        stock: formStock.trim() !== '' ? Number(formStock) : 10,
         badge: formBadge || null,
         image: formImage || '/images/products/composite-syringe.svg',
         description: formDescription.trim(),
@@ -534,10 +534,13 @@ export default function AdminProductsPage() {
                     السعر (ل.س) <span className="text-rose-500">*</span>
                   </label>
                   <input
-                    type="number"
+                    type="text"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
                     dir="ltr"
                     value={formPrice}
-                    onChange={(e) => setFormPrice(Number(e.target.value))}
+                    onChange={(e) => setFormPrice(e.target.value.replace(/[^0-9]/g, ''))}
+                    placeholder="أدخل السعر (مثال: 150000)"
                     className="w-full rounded-xl border border-slate-200 py-2 px-3 text-xs focus:ring-2 focus:ring-emdad-sky/20 focus:border-emdad-primary text-left"
                     required
                   />
@@ -548,11 +551,13 @@ export default function AdminProductsPage() {
                     السعر قبل الخصم (ل.س)
                   </label>
                   <input
-                    type="number"
+                    type="text"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
                     dir="ltr"
-                    value={formOriginalPrice || ''}
-                    onChange={(e) => setFormOriginalPrice(e.target.value ? Number(e.target.value) : undefined)}
-                    placeholder="اختياري"
+                    value={formOriginalPrice}
+                    onChange={(e) => setFormOriginalPrice(e.target.value.replace(/[^0-9]/g, ''))}
+                    placeholder="اختياري (مثال: 180000)"
                     className="w-full rounded-xl border border-slate-200 py-2 px-3 text-xs focus:ring-2 focus:ring-emdad-sky/20 focus:border-emdad-primary text-left"
                   />
                 </div>
@@ -562,10 +567,13 @@ export default function AdminProductsPage() {
                     الكمية المتوفرة (المخزون)
                   </label>
                   <input
-                    type="number"
+                    type="text"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
                     dir="ltr"
                     value={formStock}
-                    onChange={(e) => setFormStock(Number(e.target.value))}
+                    onChange={(e) => setFormStock(e.target.value.replace(/[^0-9]/g, ''))}
+                    placeholder="مثال: 20"
                     className="w-full rounded-xl border border-slate-200 py-2 px-3 text-xs focus:ring-2 focus:ring-emdad-sky/20 focus:border-emdad-primary text-left"
                   />
                 </div>
