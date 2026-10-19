@@ -17,6 +17,9 @@ import {
   ShieldCheck,
   ChevronLeft,
   Loader2,
+  Smartphone,
+  Download,
+  CheckCircle2,
 } from 'lucide-react';
 
 const navItems = [
@@ -33,6 +36,27 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [checkingAuth, setCheckingAuth] = useState(true);
   const [adminUser, setAdminUser] = useState<any>(null);
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  const [showInstallGuide, setShowInstallGuide] = useState(false);
+
+  useEffect(() => {
+    const handleBeforeInstall = (e: any) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    };
+    window.addEventListener('beforeinstallprompt', handleBeforeInstall);
+    return () => window.removeEventListener('beforeinstallprompt', handleBeforeInstall);
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      setDeferredPrompt(null);
+    } else {
+      setShowInstallGuide(true);
+    }
+  };
 
   // If we are on the login page, render children directly without admin shell
   const isLoginPage = pathname === '/admin/login';
@@ -230,7 +254,18 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <button
+              type="button"
+              onClick={handleInstallClick}
+              className="text-xs font-bold text-sky-700 bg-sky-50 border border-sky-200 hover:bg-sky-100 flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all cursor-pointer shadow-xs"
+              title="تثبيت لوحة التحكم كتطبيق على هاتفك"
+            >
+              <Smartphone className="w-3.5 h-3.5 text-sky-600" />
+              <span className="hidden xs:inline">تثبيت كـ تطبيق</span>
+              <span className="xs:hidden">تطبيق</span>
+            </button>
+
             <a
               href="/"
               target="_blank"
@@ -238,7 +273,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               className="text-xs font-bold text-slate-600 hover:text-emdad-primary flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 hover:border-emdad-primary transition-all"
             >
               <ExternalLink className="w-3.5 h-3.5" />
-              <span>معاينة المتجر المباشر</span>
+              <span className="hidden sm:inline">معاينة المتجر المباشر</span>
             </a>
           </div>
         </header>
@@ -248,6 +283,63 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           {children}
         </main>
       </div>
+
+      {/* PWA Install Instructions Modal for iOS & Android */}
+      {showInstallGuide && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in">
+          <div className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl p-6 sm:p-7 border border-slate-100 space-y-5 animate-in zoom-in-95">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div className="flex items-center gap-2">
+                <div className="w-9 h-9 rounded-xl bg-sky-50 border border-sky-100 text-emdad-primary flex items-center justify-center">
+                  <Smartphone className="w-5 h-5" />
+                </div>
+                <h3 className="text-base font-black text-slate-900">تثبيت التطبيق على الجوال</h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowInstallGuide(false)}
+                className="p-1.5 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="space-y-4 text-xs text-slate-700 leading-relaxed">
+              <div className="p-3.5 rounded-2xl bg-emerald-50/70 border border-emerald-100 space-y-1.5">
+                <span className="font-bold text-emerald-900 flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  لهواتف أندرويد (Google Chrome):
+                </span>
+                <p className="text-emerald-800 pr-5">
+                  اضغط على زر القائمة (ثلاث نقاط ⋮) في أعلى أو أسفل المتصفح، ثم اختر <strong>"تثبيت التطبيق (Install app)"</strong> أو <strong>"إضافة إلى الشاشة الرئيسية"</strong>.
+                </p>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-sky-50/70 border border-sky-100 space-y-1.5">
+                <span className="font-bold text-sky-900 flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-sky-600" />
+                  لهواتف آيفون (Safari):
+                </span>
+                <p className="text-sky-800 pr-5">
+                  اضغط على زر المشاركة بالأسفل <strong>(مربع وسهم للأعلى ⎋)</strong> ثم مرر للأسفل واضغط على <strong>"إضافة إلى الصفحة الرئيسية (Add to Home Screen)"</strong>.
+                </p>
+              </div>
+
+              <p className="text-slate-500 text-[11px] text-center">
+                ✨ سيظهر تطبيق "إمداد أدمن" مباشرة على شاشة جوالك الرئيسية كـ تطبيق حقيقي وسريع ومتزامن تلقائياً مع المتجر.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setShowInstallGuide(false)}
+              className="w-full py-2.5 rounded-xl bg-emdad-primary text-white font-bold text-xs hover:bg-emdad-primary-dark transition-all cursor-pointer shadow-xs"
+            >
+              فهمت ذلك، تم
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

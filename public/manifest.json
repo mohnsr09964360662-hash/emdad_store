@@ -1,0 +1,31 @@
+{
+  "name": "إمداد لمستلزمات طب الأسنان — لوحة الإدارة",
+  "short_name": "إمداد أدمن",
+  "description": "لوحة الإدارة والتحكم المركزي لمتجر إمداد لمستلزمات طب الأسنان",
+  "start_url": "/admin",
+  "scope": "/admin",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0B2B47",
+  "theme_color": "#0284c7",
+  "icons": [
+    {
+      "src": "/brand/emdad_logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/brand/emdad_logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
